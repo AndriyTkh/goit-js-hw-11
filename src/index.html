@@ -8,6 +8,19 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
+    <form class="search-form">
+      <input
+        type="text"
+        name="userSearch"
+        placeholder="Search images..."
+        maxlength="90"
+        selected
+      />
+      <button type="submit">Search</button>
+      <span class="loader" hidden></span>
+    </form>
+    <ul class="gallery"></ul>
+
     <script type="module" src="./main.js"></script>
   </body>
 </html>
