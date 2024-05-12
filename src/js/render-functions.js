@@ -1,10 +1,8 @@
-'using strict';
-
 export function renderGallery(hits) {
   const gallery = document.querySelector('.gallery');
   let galleryCode = '';
 
-  hits.forEach(element => {
+  hits.map(element => {
     galleryCode += `<li>
         <div class = "img-container">
             <a class="gallery-link" href="${element.largeImageURL}">

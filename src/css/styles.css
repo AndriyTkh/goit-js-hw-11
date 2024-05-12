@@ -131,13 +131,15 @@ button[type='submit']:hover {
   border: 3px dotted #6c8cff;
   border-style: solid solid dotted dotted;
   border-radius: 50%;
-  display: inline-block;
+  display: block;
   position: relative;
   box-sizing: border-box;
   animation: rotation 2s linear infinite;
+
+  margin: 0 auto;
 }
 .loader[hidden] {
-  translate: 0 -1000%;
+  display: none;
 }
 .loader::after {
   content: '';

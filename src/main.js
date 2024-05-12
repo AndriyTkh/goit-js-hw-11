@@ -11,6 +11,7 @@ import * as pixabay from './js/pixabay-api.js';
 import * as imgRender from './js/render-functions.js';
 
 const form = document.querySelector(`.search-form`);
+const loader = document.querySelector(`.loader`);
 let userInput;
 let lightbox = new SimpleLightbox('.gallery-link');
 lightbox.options.captionDelay = 250;
@@ -18,7 +19,7 @@ lightbox.options.captionsData = 'alt';
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-  userInput = form.elements.userSearch.value;
+  userInput = form.elements.userSearch.value.trim();
 
   if (!userInput) {
     iziToast.error({
@@ -54,8 +55,14 @@ form.addEventListener('submit', event => {
         return;
       }
 
-      imgRender.renderGallery(hits);
-      lightbox.refresh();
+      loader.hidden = false;
+
+      setTimeout(() => {
+        loader.hidden = true;
+
+        imgRender.renderGallery(hits);
+        lightbox.refresh();
+      }, 500);
     })
     .catch(error => {
       console.error(error);
