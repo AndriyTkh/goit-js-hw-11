@@ -42,6 +42,8 @@ form.addEventListener('submit', event => {
       const hits = data.hits;
 
       if (hits.length == 0) {
+        document.querySelector('.gallery').innerHTML = '';
+
         iziToast.error({
           theme: 'dark',
           position: 'topRight',
